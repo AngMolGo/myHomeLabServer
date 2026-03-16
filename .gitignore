@@ -1,0 +1,17 @@
+# Ignore container data contents
+**/data/*
+
+# Keep gitkeep
+!**/data/.gitkeep
+
+# Optional logs
+**/logs/
+
+# .env files
+.env
+.env.*
+env/*.env
+
+# Temporary files
+*.tmp
+*.bak
