@@ -1,0 +1,18 @@
+services:
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      #- "127.0.0.1:5678:5678"
+      - "5678:5678" # Lo cambio cuando agregue servicio de Traefik
+    environment:
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_PORT=5678
+      - N8N_RUNNERS_ENABLED=true
+      - N8N_SECURE_COOKIE=false # Lo cambio cuando habilite HTTPS
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+      - TZ=${GENERIC_TIMEZONE}
+    volumes:
+      - ./data/n8n_data_vol:/home/node/.n8n
+      - ./data/local-files:/files
